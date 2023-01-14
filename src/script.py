@@ -1,6 +1,6 @@
 import requests
 from math import ceil
-from constants import APIKEY, SEARCHENGINEID, URL
+from constants import SEARCHENGINEID, URL
 
 
 
@@ -12,15 +12,16 @@ class Result:
         Query limit per day is 100.
     """
 
-    def __init__(self, exactTerms, dateRestrict) -> None:
+    def __init__(self, exactTerms: str, dateRestrict: str, APIkey: str) -> None:
         self.exactTerms = exactTerms
         self.dateRestrict = dateRestrict
+        self.APIkey = APIkey
     
 
     def send_request(self, **kwargs):    
         print("aaaaaaaaaaaaaaaaa")
         query_params = {
-            "key": APIKEY, 
+            "key": self.APIkey, 
             "cx": SEARCHENGINEID,
             "exactTerms": self.exactTerms,
             "searchType": "image",
@@ -65,10 +66,10 @@ class Result:
     
 
 
-
+APIkey = input("Enter APIkey: ")
 exactTerms = input("Search terms: ")
 dateRestrict = input("Select date for search results: d[number]/w[number]/m[number]/y[number]. ex: \"m2\" means last 2 months. ")
 
 
-result = Result(exactTerms, dateRestrict)
+result = Result(exactTerms, dateRestrict, APIkey)
 result.send_request()
