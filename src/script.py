@@ -69,7 +69,6 @@ def search():
     exactTerms = input("Search terms: ")
     dateRestrict = input("Select date for search results: d[number]/w[number]/m[number]/y[number]. ex: \"m2\" means last 2 months. ")
 
-
     result_obj = Result(exactTerms, dateRestrict, APIkey)
     try:
         page, totalResults = result_obj.send_request()  
