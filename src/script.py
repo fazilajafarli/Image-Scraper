@@ -8,7 +8,7 @@ from constants import SEARCHENGINEID, URL
 
 class Result:
     """ 
-        Google Custom Search API allows to show maximum 100 result, and maximum 10 result per page.
+        Google Custom Search API allows to show maximum 100 results, and maximum 10 results per page.
         Query limit per day is 100.
     """
 
